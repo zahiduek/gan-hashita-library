@@ -3,123 +3,247 @@
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#244b3d">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#174b35">
 <title>הספרייה של גן השיטה</title>
 <style>
+:root{
+ --green:#174b35;--leaf:#37834e;--cream:#fff7e6;
+ --yellow:#fff0b8;--pink:#ffe0e5;--blue:#dff1ff;
+}
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#fff8eb;color:#294638}
-header{background:#244b3d;color:white;padding:26px 18px;border-radius:0 0 28px 28px;text-align:center}
-header .books{font-size:42px}
-h1{margin:8px 0;font-size:28px}
-header p{margin:0;color:#e0eddf}
-main{max-width:700px;margin:auto;padding:18px}
-.hero{background:#fffdf6;border:1px solid #e8ddc7;border-radius:24px;padding:22px;text-align:center}
-.hero .picture{font-size:65px}
-.hero h2{color:#244b3d}
-nav{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
-button{border:0;border-radius:16px;padding:16px 10px;font-size:16px;font-weight:bold;background:white;color:#244b3d;box-shadow:0 3px 10px #0001;cursor:pointer}
-.green{background:#d9f0d8}.yellow{background:#fff0c2}.pink{background:#ffe4e7}.blue{background:#dff1ff}
-.card{background:white;border:1px solid #eee2ce;border-radius:20px;padding:18px;margin:14px 0}
-label{display:block;margin:12px 0 6px;font-weight:bold}
-input{width:100%;padding:12px;border:1px solid #d6d9ce;border-radius:10px;font-size:16px}
-.action{background:#328052;color:white;width:100%;margin-top:16px}
-.hidden{display:none}
-.item{padding:12px;background:#f4f7ee;border-radius:12px;margin:9px 0}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.stat{background:#edf5e9;padding:15px;border-radius:14px;text-align:center}
-.number{font-size:28px;color:#328052;font-weight:bold}
-.small{font-size:13px;color:#657567}
-footer{text-align:center;color:#718071;padding:20px}
+body{margin:0;font-family:Arial,sans-serif;background:var(--cream);color:#173c2c}
+header{
+ background:linear-gradient(140deg,#123c2a,#286b45);
+ color:white;text-align:center;padding:20px 14px;
+ border-radius:0 0 25px 25px;box-shadow:0 5px 18px #173c2c25;
+}
+header .leaf{font-size:28px}
+h1{font-size:26px;margin:8px 0}
+header p{margin:0;color:#e0f0df}
+main{max-width:760px;margin:auto;padding:15px}
+.art{
+ background:#fffdf6;border:1px solid #ead8b2;border-radius:23px;
+ overflow:hidden;box-shadow:0 5px 18px #533a1714;
+}
+.art img{display:block;width:100%;height:auto}
+.welcome{text-align:center;padding:15px 12px 19px}
+.welcome h2{font-size:23px;margin:5px 0 8px}
+.welcome p{margin:0;line-height:1.6}
+nav{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:16px 0}
+nav button{
+ border:0;border-radius:19px;padding:15px 9px;min-height:110px;
+ text-align:center;font-family:inherit;color:#173c2c;
+ font-size:17px;font-weight:bold;box-shadow:0 3px 10px #0000000d;
+ cursor:pointer;
+}
+nav button .emoji{font-size:33px;display:block;margin-bottom:8px}
+nav button small{display:block;font-size:12px;font-weight:normal;margin-top:5px}
+.green{background:#d8f3cd}.yellow{background:#fff0b8}
+.pink{background:#ffe0e5}.blue{background:#dff1ff}
+.panel{
+ background:#fffefa;border:1px solid #eadfc8;border-radius:21px;
+ padding:19px;margin:14px 0;box-shadow:0 4px 15px #533a170a;
+}
+.panel h2{font-size:22px;color:var(--green);margin:0 0 12px}
+.hidden{display:none!important}
+label{display:block;font-weight:bold;margin:13px 0 6px}
+input,select{
+ display:block;width:100%;padding:12px;border:1px solid #d9daca;
+ border-radius:11px;font-size:16px;background:white;font-family:inherit;
+}
+.action{
+ width:100%;padding:13px;border:0;border-radius:13px;
+ background:var(--leaf);color:white;font-weight:bold;font-size:16px;
+ margin-top:15px;cursor:pointer;font-family:inherit;
+}
+.back{background:#e8f0e4;color:var(--green);margin-bottom:14px}
+.item{padding:13px;background:#f3f5e9;border-radius:14px;margin:10px 0;line-height:1.7}
+.item strong{color:var(--green);font-size:17px}
+.status{display:inline-block;background:#fff0b8;padding:4px 9px;border-radius:20px;font-size:12px}
+.status.done{background:#d9f2dc}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.stat{border-radius:15px;padding:14px 8px;text-align:center;background:#e1f3d9}
+.stat:nth-child(2){background:#fff0b8}
+.stat:nth-child(3){background:#ffe0e5}
+.stat:nth-child(4){background:#dff1ff}
+.number{font-size:30px;font-weight:bold;color:var(--green);margin-top:6px}
+.progress{height:12px;background:#e8e9df;border-radius:20px;overflow:hidden;margin-top:10px}
+.bar{height:100%;width:0;background:#37834e;transition:width .3s}
+.note{font-size:12px;line-height:1.6;color:#6b766a;background:#fff5d9;padding:11px;border-radius:11px}
+.empty{text-align:center;padding:18px}
+footer{text-align:center;padding:20px;color:#526c56}
+footer .decor{font-size:24px}
+@media(min-width:600px){
+ main{padding:24px}
+ .welcome{padding:22px}
+ nav button{min-height:125px}
+ .stats{grid-template-columns:repeat(4,1fr)}
+}
 </style>
 </head>
 <body>
 <header>
-<div class="books">📚 🌿 📖</div>
-<h1>הספרייה של גן השיטה</h1>
-<p>קוראים יחד, גדלים יחד ❤️</p>
+ <div class="leaf">📚 🌿 📖</div>
+ <h1>הספרייה של גן השיטה</h1>
+ <p>קוראים יחד, גדלים יחד ❤️</p>
 </header>
+
 <main>
-<section class="hero">
-<div class="picture">🦁 📚 🐻</div>
-<h2>כל ספר הוא הרפתקה!</h2>
-<p>ברוכים הבאים לספרייה שלנו. בוחרים ספר, קוראים יחד וגדלים דרך סיפורים.</p>
-</section>
-<nav>
-<button class="green" onclick="show('add')">📗 השאלת ספר</button>
-<button class="yellow" onclick="show('return')">✅ החזרת ספר</button>
-<button class="pink" onclick="show('report')">📊 מעקב קריאה</button>
-<button class="blue" onclick="show('list')">📚 רשימת הספרים</button>
-</nav>
-<section id="add" class="card">
-<h2>📗 רישום השאלת ספר</h2>
-<label>שם הילד או הילדה</label>
-<input id="child" placeholder="שם הילד/ה">
-<label>שם הספר</label>
-<input id="book" placeholder="שם הספר">
-<label>תאריך לקיחת הספר</label>
-<input id="date" type="date">
-<button class="action" onclick="addLoan()">שמירת ההשאלה</button>
-<p class="small">גרסת הדגמה בלבד. הנתונים עדיין אינם משותפים עם הגננת.</p>
-</section>
-<section id="return" class="card hidden">
-<h2>✅ החזרת ספר</h2>
-<div id="returns"></div>
-</section>
-<section id="report" class="card hidden">
-<h2>📊 הקריאה שלנו בגן</h2>
-<div class="stats">
-<div class="stat">מספר השאלות<div class="number" id="total">0</div></div>
-<div class="stat">ספרים בבית<div class="number" id="open">0</div></div>
-<div class="stat">ספרים שהוחזרו<div class="number" id="returned">0</div></div>
-<div class="stat">ילדים משתתפים<div class="number" id="kids">0</div></div>
-</div>
-<label>מספר הילדים בגן</label>
-<input id="count" type="number" value="30" min="1" onchange="render()">
-<p>אחוז השתתפות: <strong id="percent">0%</strong></p>
-</section>
-<section id="list" class="card hidden">
-<h2>📚 רשימת ההשאלות</h2>
-<div id="loans"></div>
-</section>
-<footer>גן השיטה 🌿 סיפורים קטנים, דמיון גדול</footer>
+ <section id="home">
+  <div class="art">
+   <img src="./library-scene.png" alt="הספרייה הקסומה של גן השיטה — ילדים קוראים יחד">
+   <div class="welcome">
+    <h2>ברוכים הבאים לספרייה שלנו!</h2>
+    <p>כל ספר הוא הרפתקה חדשה.<br>פותחים ספר, מגלים עולם וגדלים יחד.</p>
+   </div>
+  </div>
+
+  <nav>
+   <button class="green" onclick="show('add')">
+    <span class="emoji">📚</span>השאלת ספר
+    <small>רישום ספר שיוצא הביתה</small>
+   </button>
+   <button class="yellow" onclick="show('return')">
+    <span class="emoji">✅</span>החזרת ספר
+    <small>סימון ספר שהוחזר</small>
+   </button>
+   <button class="pink" onclick="show('report')">
+    <span class="emoji">📊</span>מעקב קריאה
+    <small>נתוני הקריאה בגן</small>
+   </button>
+   <button class="blue" onclick="show('list')">
+    <span class="emoji">🧒📖</span>רשימת ההשאלות
+    <small>הספרים שנלקחו והוחזרו</small>
+   </button>
+  </nav>
+  <div class="welcome">
+   <div class="decor">🌼 📚 🍃 🦋</div>
+   <p><strong>ילדים שקוראים יחד, עולמות שנפתחים בפניהם</strong></p>
+  </div>
+ </section>
+
+ <section id="add" class="panel hidden">
+  <button class="action back" onclick="show('home')">← חזרה לדף הבית</button>
+  <h2>📗 רישום השאלת ספר</h2>
+  <label for="child">שם הילד או הילדה</label>
+  <input id="child" placeholder="שם הילד/ה">
+  <label for="book">שם הספר</label>
+  <input id="book" placeholder="שם הספר שנלקח">
+  <label for="takeDate">תאריך לקיחת הספר</label>
+  <input id="takeDate" type="date">
+  <button class="action" onclick="addLoan()">💚 שמירת ההשאלה</button>
+  <p class="note">זוהי כרגע גרסת הדגמה. הנתונים נשמרים בדפדפן המקומי בלבד ואינם משותפים בין ההורים לגננת.</p>
+ </section>
+
+ <section id="return" class="panel hidden">
+  <button class="action back" onclick="show('home')">← חזרה לדף הבית</button>
+  <h2>✅ החזרת ספר לספרייה</h2>
+  <p>בחרו ספר מהרשימה וסמנו שהוחזר.</p>
+  <div id="returns"></div>
+ </section>
+
+ <section id="report" class="panel hidden">
+  <button class="action back" onclick="show('home')">← חזרה לדף הבית</button>
+  <h2>📊 מעקב הקריאה בגן</h2>
+  <label for="childCount">מספר הילדים בגן</label>
+  <input id="childCount" type="number" min="1" value="30" onchange="render()">
+  <div class="stats">
+   <div class="stat">📚<div>סה״כ השאלות</div><div class="number" id="total">0</div></div>
+   <div class="stat">🏡<div>ספרים בבית</div><div class="number" id="openCount">0</div></div>
+   <div class="stat">✅<div>ספרים שהוחזרו</div><div class="number" id="returnedCount">0</div></div>
+   <div class="stat">👧🏻<div>ילדים משתתפים</div><div class="number" id="kidCount">0</div></div>
+  </div>
+  <div class="item">
+   <strong>אחוז השתתפות בפרויקט הקריאה</strong>
+   <div class="progress"><div class="bar" id="bar"></div></div>
+   <p><strong id="percent">0%</strong> מהילדים לקחו לפחות ספר אחד.</p>
+  </div>
+  <p class="note">הנתונים מוצגים לפי ההשאלות שנשמרו בדפדפן הנוכחי בלבד.</p>
+ </section>
+
+ <section id="list" class="panel hidden">
+  <button class="action back" onclick="show('home')">← חזרה לדף הבית</button>
+  <h2>📚 ספרי הספרייה שלנו</h2>
+  <div id="loans"></div>
+ </section>
+
+ <footer>
+  <div class="decor">📚 🌿 📖 🌼</div>
+  <strong>גן השיטה</strong>
+  <p>סיפור קטן — עולם גדול ❤️</p>
+ </footer>
 </main>
+
 <script>
 let data=[];
 try{data=JSON.parse(localStorage.getItem('hashitaDemo')||'[]')}catch(e){}
-document.getElementById('date').value=new Date().toISOString().slice(0,10);
+document.getElementById('takeDate').value=new Date().toISOString().slice(0,10);
+
 function show(id){
-['add','return','report','list'].forEach(x=>document.getElementById(x).classList.toggle('hidden',x!==id));
-render();
+ ['home','add','return','report','list'].forEach(x=>
+  document.getElementById(x).classList.toggle('hidden',x!==id)
+ );
+ render();
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function save(){
+ try{localStorage.setItem('hashitaDemo',JSON.stringify(data))}
+ catch(e){alert('לא ניתן לשמור נתונים בדפדפן הזה.')}
+ render();
 }
 function addLoan(){
-let child=document.getElementById('child').value.trim();
-let book=document.getElementById('book').value.trim();
-let date=document.getElementById('date').value;
-if(!child||!book||!date){alert('נא למלא שם ילד, שם ספר ותאריך');return}
-data.push({child,book,date,returned:false,returnDate:''});
-save();
-document.getElementById('child').value='';
-document.getElementById('book').value='';
-alert('ההשאלה נרשמה בהדגמה!');
+ const child=document.getElementById('child').value.trim();
+ const book=document.getElementById('book').value.trim();
+ const date=document.getElementById('takeDate').value;
+ if(!child||!book||!date){alert('נא למלא שם ילד, שם ספר ותאריך לקיחה.');return}
+ data.push({id:Date.now(),child,book,date,returned:false,returnDate:''});
+ save();
+ document.getElementById('child').value='';
+ document.getElementById('book').value='';
+ alert('ההשאלה נרשמה בהדגמה 📚');
+ show('list');
 }
-function save(){localStorage.setItem('hashitaDemo',JSON.stringify(data));render()}
-function finish(i){
-let d=prompt('מה תאריך החזרת הספר? (YYYY-MM-DD)',new Date().toISOString().slice(0,10));
-if(d){data[i].returned=true;data[i].returnDate=d;save()}
+function finish(id){
+ const d=prompt('תאריך החזרת הספר (YYYY-MM-DD)',new Date().toISOString().slice(0,10));
+ if(!d)return;
+ const x=data.find(a=>a.id===id);
+ if(x){x.returned=true;x.returnDate=d;save();alert('הספר סומן כהוחזר!')}
 }
-function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function esc(s){
+ return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
 function render(){
-let open=data.filter(x=>!x.returned);
-document.getElementById('total').textContent=data.length;
-document.getElementById('open').textContent=open.length;
-document.getElementById('returned').textContent=data.length-open.length;
-let kids=new Set(data.map(x=>x.child));
-document.getElementById('kids').textContent=kids.size;
-let count=Math.max(1,Number(document.getElementById('count').value)||30);
-document.getElementById('percent').textContent=Math.min(100,Math.round(kids.size/count*100))+'%';
-document.getElementById('loans').innerHTML=data.length?data.map((x,i)=>`<div class="item"><b>${esc(x.book)}</b><br>${esc(x.child)}<br><span class="small">נלקח: ${esc(x.date)} ${x.returned?' | הוחזר: '+esc(x.returnDate):' | עדיין בבית'}</span></div>`).join(''):'עדיין אין השאלות.';
-document.getElementById('returns').innerHTML=open.length?open.map(x=>{let i=data.indexOf(x);return `<div class="item"><b>${esc(x.book)}</b><br>${esc(x.child)}<br><button onclick="finish(${i})">סימון כהוחזר</button></div>`}).join(''):'כל הספרים הוחזרו! 🎉';
+ const open=data.filter(x=>!x.returned);
+ const kids=new Set(data.map(x=>x.child));
+ document.getElementById('total').textContent=data.length;
+ document.getElementById('openCount').textContent=open.length;
+ document.getElementById('returnedCount').textContent=data.length-open.length;
+ document.getElementById('kidCount').textContent=kids.size;
+ const count=Math.max(1,Number(document.getElementById('childCount').value)||30);
+ const pct=Math.min(100,Math.round(kids.size/count*100));
+ document.getElementById('percent').textContent=pct+'%';
+ document.getElementById('bar').style.width=pct+'%';
+
+ document.getElementById('loans').innerHTML=data.length?
+ data.slice().reverse().map(x=>`
+  <div class="item">
+   <strong>📖 ${esc(x.book)}</strong><br>
+   שם הילד/ה: ${esc(x.child)}<br>
+   <small>נלקח: ${esc(x.date)}${x.returned?' · הוחזר: '+esc(x.returnDate):''}</small><br>
+   <span class="status ${x.returned?'done':''}">${x.returned?'הוחזר לספרייה':'נמצא בבית'}</span>
+  </div>`).join(''):
+ '<div class="empty">📚 עדיין אין השאלות.<br>אפשר להתחיל בכפתור „השאלת ספר”.</div>';
+
+ document.getElementById('returns').innerHTML=open.length?
+ open.map(x=>`
+  <div class="item">
+   <strong>📖 ${esc(x.book)}</strong><br>
+   שם הילד/ה: ${esc(x.child)}<br>
+   <small>תאריך לקיחה: ${esc(x.date)}</small>
+   <button class="action" onclick="finish(${x.id})">✅ סימון הספר כהוחזר</button>
+  </div>`).join(''):
+ '<div class="empty">🎉 כל הספרים הוחזרו לספרייה!</div>';
 }
 render();
 </script>

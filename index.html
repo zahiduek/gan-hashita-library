@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#244b3d">
+<title>הספרייה של גן השיטה</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#fff8eb;color:#294638}
+header{background:#244b3d;color:white;padding:26px 18px;border-radius:0 0 28px 28px;text-align:center}
+header .books{font-size:42px}
+h1{margin:8px 0;font-size:28px}
+header p{margin:0;color:#e0eddf}
+main{max-width:700px;margin:auto;padding:18px}
+.hero{background:#fffdf6;border:1px solid #e8ddc7;border-radius:24px;padding:22px;text-align:center}
+.hero .picture{font-size:65px}
+.hero h2{color:#244b3d}
+nav{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+button{border:0;border-radius:16px;padding:16px 10px;font-size:16px;font-weight:bold;background:white;color:#244b3d;box-shadow:0 3px 10px #0001;cursor:pointer}
+.green{background:#d9f0d8}.yellow{background:#fff0c2}.pink{background:#ffe4e7}.blue{background:#dff1ff}
+.card{background:white;border:1px solid #eee2ce;border-radius:20px;padding:18px;margin:14px 0}
+label{display:block;margin:12px 0 6px;font-weight:bold}
+input{width:100%;padding:12px;border:1px solid #d6d9ce;border-radius:10px;font-size:16px}
+.action{background:#328052;color:white;width:100%;margin-top:16px}
+.hidden{display:none}
+.item{padding:12px;background:#f4f7ee;border-radius:12px;margin:9px 0}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat{background:#edf5e9;padding:15px;border-radius:14px;text-align:center}
+.number{font-size:28px;color:#328052;font-weight:bold}
+.small{font-size:13px;color:#657567}
+footer{text-align:center;color:#718071;padding:20px}
+</style>
+</head>
+<body>
+<header>
+<div class="books">📚 🌿 📖</div>
+<h1>הספרייה של גן השיטה</h1>
+<p>קוראים יחד, גדלים יחד ❤️</p>
+</header>
+<main>
+<section class="hero">
+<div class="picture">🦁 📚 🐻</div>
+<h2>כל ספר הוא הרפתקה!</h2>
+<p>ברוכים הבאים לספרייה שלנו. בוחרים ספר, קוראים יחד וגדלים דרך סיפורים.</p>
+</section>
+<nav>
+<button class="green" onclick="show('add')">📗 השאלת ספר</button>
+<button class="yellow" onclick="show('return')">✅ החזרת ספר</button>
+<button class="pink" onclick="show('report')">📊 מעקב קריאה</button>
+<button class="blue" onclick="show('list')">📚 רשימת הספרים</button>
+</nav>
+<section id="add" class="card">
+<h2>📗 רישום השאלת ספר</h2>
+<label>שם הילד או הילדה</label>
+<input id="child" placeholder="שם הילד/ה">
+<label>שם הספר</label>
+<input id="book" placeholder="שם הספר">
+<label>תאריך לקיחת הספר</label>
+<input id="date" type="date">
+<button class="action" onclick="addLoan()">שמירת ההשאלה</button>
+<p class="small">גרסת הדגמה בלבד. הנתונים עדיין אינם משותפים עם הגננת.</p>
+</section>
+<section id="return" class="card hidden">
+<h2>✅ החזרת ספר</h2>
+<div id="returns"></div>
+</section>
+<section id="report" class="card hidden">
+<h2>📊 הקריאה שלנו בגן</h2>
+<div class="stats">
+<div class="stat">מספר השאלות<div class="number" id="total">0</div></div>
+<div class="stat">ספרים בבית<div class="number" id="open">0</div></div>
+<div class="stat">ספרים שהוחזרו<div class="number" id="returned">0</div></div>
+<div class="stat">ילדים משתתפים<div class="number" id="kids">0</div></div>
+</div>
+<label>מספר הילדים בגן</label>
+<input id="count" type="number" value="30" min="1" onchange="render()">
+<p>אחוז השתתפות: <strong id="percent">0%</strong></p>
+</section>
+<section id="list" class="card hidden">
+<h2>📚 רשימת ההשאלות</h2>
+<div id="loans"></div>
+</section>
+<footer>גן השיטה 🌿 סיפורים קטנים, דמיון גדול</footer>
+</main>
+<script>
+let data=[];
+try{data=JSON.parse(localStorage.getItem('hashitaDemo')||'[]')}catch(e){}
+document.getElementById('date').value=new Date().toISOString().slice(0,10);
+function show(id){
+['add','return','report','list'].forEach(x=>document.getElementById(x).classList.toggle('hidden',x!==id));
+render();
+}
+function addLoan(){
+let child=document.getElementById('child').value.trim();
+let book=document.getElementById('book').value.trim();
+let date=document.getElementById('date').value;
+if(!child||!book||!date){alert('נא למלא שם ילד, שם ספר ותאריך');return}
+data.push({child,book,date,returned:false,returnDate:''});
+save();
+document.getElementById('child').value='';
+document.getElementById('book').value='';
+alert('ההשאלה נרשמה בהדגמה!');
+}
+function save(){localStorage.setItem('hashitaDemo',JSON.stringify(data));render()}
+function finish(i){
+let d=prompt('מה תאריך החזרת הספר? (YYYY-MM-DD)',new Date().toISOString().slice(0,10));
+if(d){data[i].returned=true;data[i].returnDate=d;save()}
+}
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function render(){
+let open=data.filter(x=>!x.returned);
+document.getElementById('total').textContent=data.length;
+document.getElementById('open').textContent=open.length;
+document.getElementById('returned').textContent=data.length-open.length;
+let kids=new Set(data.map(x=>x.child));
+document.getElementById('kids').textContent=kids.size;
+let count=Math.max(1,Number(document.getElementById('count').value)||30);
+document.getElementById('percent').textContent=Math.min(100,Math.round(kids.size/count*100))+'%';
+document.getElementById('loans').innerHTML=data.length?data.map((x,i)=>`<div class="item"><b>${esc(x.book)}</b><br>${esc(x.child)}<br><span class="small">נלקח: ${esc(x.date)} ${x.returned?' | הוחזר: '+esc(x.returnDate):' | עדיין בבית'}</span></div>`).join(''):'עדיין אין השאלות.';
+document.getElementById('returns').innerHTML=open.length?open.map(x=>{let i=data.indexOf(x);return `<div class="item"><b>${esc(x.book)}</b><br>${esc(x.child)}<br><button onclick="finish(${i})">סימון כהוחזר</button></div>`}).join(''):'כל הספרים הוחזרו! 🎉';
+}
+render();
+</script>
+</body>
+</html>

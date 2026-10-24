@@ -1,39 +1,134 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#174b35">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#174b35">
 <title>הספרייה של גן השיטה</title>
 <style>
-:root{--green:#174b35;--leaf:#37834e;--cream:#fff7e6;--yellow:#fff0b8;--pink:#ffe0e5;--blue:#dff1ff}*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:var(--cream);color:#173c2c}header{background:linear-gradient(140deg,#123c2a,#286b45);color:white;text-align:center;padding:20px 14px;border-radius:0 0 25px 25px;box-shadow:0 5px 18px #173c2c25}header .leaf{font-size:28px}h1{font-size:26px;margin:8px 0}header p{margin:0;color:#e0f0df}main{max-width:760px;margin:auto;padding:15px}.art{background:#fffdf6;border:1px solid #ead8b2;border-radius:23px;overflow:hidden;box-shadow:0 5px 18px #533a1714}.art img{display:block;width:100%;height:auto}.welcome{text-align:center;padding:15px 12px 19px}.welcome h2{font-size:23px;margin:5px 0 8px}.welcome p{margin:0;line-height:1.6}nav{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:16px 0}nav button{border:0;border-radius:19px;padding:15px 9px;min-height:110px;text-align:center;font-family:inherit;color:#173c2c;font-size:17px;font-weight:bold;box-shadow:0 3px 10px #0000000d;cursor:pointer}nav button .emoji{font-size:33px;display:block;margin-bottom:8px}nav button small{display:block;font-size:12px;font-weight:normal;margin-top:5px}.green{background:#d8f3cd}.yellow{background:#fff0b8}.pink{background:#ffe0e5}.blue{background:#dff1ff}.panel{background:#fffefa;border:1px solid #eadfc8;border-radius:21px;padding:19px;margin:14px 0;box-shadow:0 4px 15px #533a170a}.panel h2{font-size:22px;color:var(--green);margin:0 0 12px}.hidden{display:none!important}label{display:block;font-weight:bold;margin:13px 0 6px}input,select{display:block;width:100%;padding:12px;border:1px solid #d9daca;border-radius:11px;font-size:16px;background:white;font-family:inherit}.action{width:100%;padding:13px;border:0;border-radius:13px;background:var(--leaf);color:white;font-weight:bold;font-size:16px;margin-top:15px;cursor:pointer;font-family:inherit}.back{background:#e8f0e4;color:var(--green);margin-bottom:14px}.item{padding:13px;background:#f3f5e9;border-radius:14px;margin:10px 0;line-height:1.7}.item strong{color:var(--green);font-size:17px}.status{display:inline-block;background:#fff0b8;padding:4px 9px;border-radius:20px;font-size:12px}.status.done{background:#d9f2dc}.stats{display:grid;grid-template-columns:1fr 1fr;gap:9px}.stat{border-radius:15px;padding:14px 8px;text-align:center;background:#e1f3d9}.stat:nth-child(2){background:#fff0b8}.stat:nth-child(3){background:#ffe0e5}.stat:nth-child(4){background:#dff1ff}.number{font-size:30px;font-weight:bold;color:var(--green);margin-top:6px}.progress{height:12px;background:#e8e9df;border-radius:20px;overflow:hidden;margin-top:10px}.bar{height:100%;width:0;background:#37834e;transition:width .3s}.note{font-size:12px;line-height:1.6;color:#6b766a;background:#fff5d9;padding:11px;border-radius:11px}.empty{text-align:center;padding:18px}footer{text-align:center;padding:20px;color:#526c56}footer .decor{font-size:24px}#message{margin:12px 0;padding:12px;border-radius:11px;line-height:1.5;display:none;background:#fff0b8}#message.error{display:block;background:#ffe0e5;color:#7d2032}#message.ok{display:block;background:#d9f2dc;color:#174b35}#authBar{display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;margin:12px 0}.smallbtn{border:0;border-radius:10px;padding:9px 12px;background:#e8f0e4;color:var(--green);font-weight:bold;cursor:pointer}@media(min-width:600px){main{padding:24px}.welcome{padding:22px}nav button{min-height:125px}.stats{grid-template-columns:repeat(4,1fr)}}
+:root{--green:#174b35;--leaf:#37834e;--cream:#fff7e6;--yellow:#fff0b8;--pink:#ffe0e5;--blue:#dff1ff}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:var(--cream);color:#173c2c}
+header{background:linear-gradient(140deg,#123c2a,#286b45);color:white;text-align:center;padding:20px 14px;border-radius:0 0 25px 25px;box-shadow:0 5px 18px #173c2c25}
+header .leaf{font-size:28px}
+h1{font-size:26px;margin:8px 0}
+header p{margin:0;color:#e0f0df}
+main{max-width:760px;margin:auto;padding:15px}
+.art{background:#fffdf6;border:1px solid #ead8b2;border-radius:23px;overflow:hidden;box-shadow:0 5px 18px #533a1714}
+.art img{display:block;width:100%;height:auto}
+.welcome{text-align:center;padding:15px 12px 19px}
+.welcome h2{font-size:23px;margin:5px 0 8px}
+.welcome p{margin:0;line-height:1.6}
+nav{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:16px 0}
+nav button{border:0;border-radius:19px;padding:15px 9px;min-height:110px;text-align:center;font-family:inherit;color:#173c2c;font-size:17px;font-weight:bold;box-shadow:0 3px 10px #0000000d;cursor:pointer}
+nav button .emoji{font-size:33px;display:block;margin-bottom:8px}
+nav button small{display:block;font-size:12px;font-weight:normal;margin-top:5px}
+.green{background:#d8f3cd}.yellow{background:#fff0b8}.pink{background:#ffe0e5}.blue{background:#dff1ff}
+.panel{background:#fffefa;border:1px solid #eadfc8;border-radius:21px;padding:19px;margin:14px 0;box-shadow:0 4px 15px #533a170a}
+.panel h2{font-size:22px;color:var(--green);margin:0 0 12px}
+.hidden{display:none!important}
+label{display:block;font-weight:bold;margin:13px 0 6px}
+input,select{display:block;width:100%;padding:12px;border:1px solid #d9daca;border-radius:11px;font-size:16px;background:white;font-family:inherit}
+.action{width:100%;padding:13px;border:0;border-radius:13px;background:var(--leaf);color:white;font-weight:bold;font-size:16px;margin-top:15px;cursor:pointer;font-family:inherit}
+.back{background:#e8f0e4;color:var(--green);margin-bottom:14px}
+.item{padding:13px;background:#f3f5e9;border-radius:14px;margin:10px 0;line-height:1.7}
+.item strong{color:var(--green);font-size:17px}
+.status{display:inline-block;background:#fff0b8;padding:4px 9px;border-radius:20px;font-size:12px}
+.status.done{background:#d9f2dc}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.stat{border-radius:15px;padding:14px 8px;text-align:center;background:#e1f3d9}
+.stat:nth-child(2){background:#fff0b8}
+.stat:nth-child(3){background:#ffe0e5}
+.stat:nth-child(4){background:#dff1ff}
+.number{font-size:30px;font-weight:bold;color:var(--green);margin-top:6px}
+.progress{height:12px;background:#e8e9df;border-radius:20px;overflow:hidden;margin-top:10px}
+.bar{height:100%;width:0;background:#37834e;transition:width .3s}
+.note{font-size:12px;line-height:1.6;color:#6b766a;background:#fff5d9;padding:11px;border-radius:11px}
+.empty{text-align:center;padding:18px}
+footer{text-align:center;padding:20px;color:#526c56}
+footer .decor{font-size:24px}
+#message{margin:12px 0;padding:12px;border-radius:11px;line-height:1.5;display:none;background:#fff0b8}
+#message.error{display:block;background:#ffe0e5;color:#7d2032}
+#message.ok{display:block;background:#d9f2dc;color:#174b35}
+#authBar{display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;margin:12px 0}
+.smallbtn{border:0;border-radius:10px;padding:9px 12px;background:#e8f0e4;color:var(--green);font-weight:bold;cursor:pointer}
+@media(min-width:600px){main{padding:24px}.welcome{padding:22px}nav button{min-height:125px}.stats{grid-template-columns:repeat(4,1fr)}}
 </style>
-</head><body>
-<header><div class="leaf">📚 🌿 📖</div><h1>הספרייה של גן השיטה</h1><p>קוראים יחד, גדלים יחד ❤️</p></header>
+</head>
+<body>
+<header>
+<div class="leaf">📚 🌿 📖</div>
+<h1>הספרייה של גן השיטה</h1>
+<p>קוראים יחד, גדלים יחד ❤️</p>
+</header>
 <main>
-<section id="login" class="panel"><h2>✉️ כניסה לספרייה</h2><p>הכניסו כתובת מייל ונשלח אליכם קישור מאובטח לכניסה, ללא סיסמה.</p><label for="email">כתובת מייל</label><input id="email" type="email" autocomplete="email" placeholder="name@example.com" required><button class="action" id="loginBtn" onclick="sendMagicLink()">שליחת קישור לכניסה</button><p class="note">לאחר קבלת המייל, פתחו את הקישור באותו דפדפן שבו פתחתם את הספרייה.</p></section>
-<div id="message" role="status" aria-live="polite"></div><div id="authBar" class="hidden"><span id="signedInAs"></span><button class="smallbtn" onclick="signOut()">יציאה מהחשבון</button><button class="smallbtn" onclick="refreshAll()">רענון נתונים</button></div>
-<section id="app" class="hidden"><section id="home"><div class="art"><img src="./library-scene.png" alt="הספרייה הקסומה של גן השיטה — ילדים קוראים יחד"><div class="welcome"><h2>ברוכים הבאים לספרייה שלנו!</h2><p>כל ספר הוא הרפתקה חדשה.<br>פותחים ספר, מגלים עולם וגדלים יחד.</p></div></div>
-<nav><button class="green" onclick="show('add')"><span class="emoji">📚</span>השאלת ספר<small>רישום ספר שיוצא הביתה</small></button><button class="yellow" onclick="show('return')"><span class="emoji">✅</span>החזרת ספר<small>סימון ספר שהוחזר</small></button><button class="pink" onclick="show('report')"><span class="emoji">📊</span>מעקב קריאה<small>נתוני הקריאה בגן</small></button><button class="blue" onclick="show('list')"><span class="emoji">🧒📖</span>רשימת ההשאלות<small>הספרים שנלקחו והוחזרו</small></button></nav><div class="welcome"><div class="decor">🌼 📚 🍃 🦋</div><p><strong>ילדים שקוראים יחד, עולמות שנפתחים בפניהם</strong></p></div></section>
-<section id="add" class="panel hidden"><button class="action back" onclick="show('home')">← חזרה לדף הבית</button><h2>📗 רישום השאלת ספר</h2><label for="child">שם הילד או הילדה</label><select id="child"><option value="">טוען ילדים...</option></select><label for="book">שם הספר</label><select id="book"><option value="">טוען ספרים...</option></select><label for="takeDate">תאריך לקיחת הספר</label><input id="takeDate" type="date"><button class="action" onclick="addLoan()">💚 שמירת ההשאלה</button><p class="note">הרשימות נטענות ממסד הנתונים המשותף. כרגע יש נתוני דוגמה; לפני שימוש אמיתי יש להוסיף את שמות הילדים והספרים של הגן.</p></section>
-<section id="return" class="panel hidden"><button class="action back" onclick="show('home')">← חזרה לדף הבית</button><h2>✅ החזרת ספר לספרייה</h2><p>בחרו ספר מהרשימה וסמנו שהוחזר.</p><div id="returns"></div></section>
-<section id="report" class="panel hidden"><button class="action back" onclick="show('home')">← חזרה לדף הבית</button><h2>📊 מעקב הקריאה בגן</h2><label for="childCount">מספר הילדים בגן</label><input id="childCount" type="number" min="1" value="30" onchange="render()"><div class="stats"><div class="stat">📚<div>סה״כ השאלות</div><div class="number" id="total">0</div></div><div class="stat">🏡<div>ספרים בבית</div><div class="number" id="openCount">0</div></div><div class="stat">✅<div>ספרים שהוחזרו</div><div class="number" id="returnedCount">0</div></div><div class="stat">👧🏻<div>ילדים משתתפים</div><div class="number" id="kidCount">0</div></div></div><div class="item"><strong>אחוז השתתפות בפרויקט הקריאה</strong><div class="progress"><div class="bar" id="bar"></div></div><p><strong id="percent">0%</strong> מהילדים לקחו לפחות ספר אחד.</p></div></section>
-<section id="list" class="panel hidden"><button class="action back" onclick="show('home')">← חזרה לדף הבית</button><h2>📚 רשימת ההשאלות שלנו</h2><div id="loans"></div></section></section>
-<footer><div class="decor">📚 🌿 📖 🌼</div><strong>גן השיטה</strong><p>סיפור קטן — עולם גדול ❤️</p></footer></main>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
-const SUPABASE_URL='https://eokofqfapbaapjftadye.supabase.co';
-const SUPABASE_PUBLISHABLE_KEY='sb_publishable_DbjApLwD77RTHt7xPowFLw_pLFuoW19';
-const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY);let books=[],children=[],data=[],currentUser=null;
-document.getElementById('takeDate').value=new Date().toLocaleDateString('en-CA');
-function message(t,type='ok'){let e=document.getElementById('message');e.textContent=t;e.className=type;e.style.display='block'}function clearMessage(){let e=document.getElementById('message');e.textContent='';e.className='';e.style.display='none'}
-async function sendMagicLink(){clearMessage();let email=document.getElementById('email').value.trim();if(!email){message('נא להזין כתובת מייל.','error');return}let b=document.getElementById('loginBtn');b.disabled=true;b.textContent='שולח...';try{let {error}=await db.auth.signInWithOtp({email,options:{emailRedirectTo:'https://gan-hashita-library.vercel.app',shouldCreateUser:true}});if(error)throw error;message('נשלח קישור למייל. פתחו את ההודעה ולחצו על הקישור כדי להיכנס. בדקו גם בתיקיית הספאם אם לא מופיע.')}catch(e){message('לא הצלחתי לשלוח את הקישור: '+(e.message||'שגיאה לא ידועה'),'error')}finally{b.disabled=false;b.textContent='שליחת קישור לכניסה'}}
-async function signOut(){await db.auth.signOut();currentUser=null;document.getElementById('login').classList.remove('hidden');document.getElementById('app').classList.add('hidden');document.getElementById('authBar').classList.add('hidden');message('יצאת מהחשבון.')}
-async function initAuth(){let {data:{session}}=await db.auth.getSession();if(session)await onSignedIn(session.user);db.auth.onAuthStateChange((event,session)=>{if(session)setTimeout(()=>onSignedIn(session.user),0)})}
-async function onSignedIn(user){currentUser=user;document.getElementById('login').classList.add('hidden');document.getElementById('app').classList.remove('hidden');document.getElementById('authBar').classList.remove('hidden');document.getElementById('signedInAs').textContent='מחוברים: '+user.email;clearMessage();await refreshAll()}
-async function refreshAll(){if(!currentUser)return;try{let [b,c,l]=await Promise.all([db.from('books').select('id,title,author').order('title'),db.from('children').select('id,name').order('name'),db.from('loans').select('id,child_id,book_id,loan_date,due_date,return_date,notes,created_at').order('created_at',{ascending:false})]);for(let r of [b,c,l])if(r.error)throw r.error;books=b.data||[];children=c.data||[];data=(l.data||[]).map(x=>({...x,child:children.find(c=>String(c.id)===String(x.child_id))?.name||'ילד/ה לא ידוע/ה',book:books.find(b=>String(b.id)===String(x.book_id))?.title||'ספר לא ידוע',date:x.loan_date,returned:!!x.return_date,returnDate:x.return_date||''}));fillSelects();render()}catch(e){message('התחברתם, אבל טעינת הנתונים נכשלה. בדקו את הרשאות Supabase: '+(e.message||''),'error')}}
-function fillSelects(){let cs=document.getElementById('child'),bs=document.getElementById('book');cs.innerHTML='<option value="">בחרו ילד/ה</option>'+children.map(c=>`<option value="${esc(c.id)}">${esc(c.name)}</option>`).join('');bs.innerHTML='<option value="">בחרו ספר</option>'+books.map(b=>`<option value="${esc(b.id)}">${esc(b.title)}${b.author?' — '+esc(b.author):''}</option>`).join('');if(!children.length)cs.innerHTML='<option value="">אין ילדים ברשימה עדיין</option>';if(!books.length)bs.innerHTML='<option value="">אין ספרים ברשימה עדיין</option>'}
-function show(id){['home','add','return','report','list'].forEach(x=>document.getElementById(x).classList.toggle('hidden',x!==id));render();window.scrollTo({top:0,behavior:'smooth'})}
-async function addLoan(){let childId=document.getElementById('child').value,bookId=document.getElementById('book').value,date=document.getElementById('takeDate').value;if(!childId||!bookId||!date){message('נא לבחור ילד/ה, ספר ותאריך לקיחה.','error');return}try{let {error}=await db.from('loans').insert({child_id:Number(childId),book_id:Number(bookId),loan_date:date});if(error)throw error;message('ההשאלה נשמרה בהצלחה ונראית למשתמשים המחוברים.');await refreshAll();show('list')}catch(e){message('שמירת ההשאלה נכשלה: '+(e.message||'בדקו את הרשאות הטבלה loans ב-Supabase.'),'error')}}
-async function finish(id){let d=prompt('תאריך החזרת הספר (YYYY-MM-DD)',new Date().toLocaleDateString('en-CA'));if(!d)return;if(!/^\d{4}-\d{2}-\d{2}$/.test(d)){message('נא להזין תאריך בפורמט YYYY-MM-DD.','error');return}try{let {error}=await db.from('loans').update({return_date:d}).eq('id',id);if(error)throw error;message('הספר סומן כהוחזר.');await refreshAll()}catch(e){message('עדכון ההחזרה נכשל: '+(e.message||'בדקו את הרשאות הטבלה loans.'),'error')}}
-function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function render(){let open=data.filter(x=>!x.returned),kids=new Set(data.map(x=>x.child_id)),el=id=>document.getElementById(id);el('total').textContent=data.length;el('openCount').textContent=open.length;el('returnedCount').textContent=data.length-open.length;el('kidCount').textContent=kids.size;let count=Math.max(1,Number(el('childCount').value)||30),pct=Math.min(100,Math.round(kids.size/count*100));el('percent').textContent=pct+'%';el('bar').style.width=pct+'%';el('loans').innerHTML=data.length?data.map(x=>`<div class="item"><strong>📖 ${esc(x.book)}</strong><br>שם הילד/ה: ${esc(x.child)}<br><small>נלקח: ${esc(x.date||'—')}${x.returned?' · הוחזר: '+esc(x.returnDate):''}</small><br><span class="status ${x.returned?'done':''}">${x.returned?'הוחזר לספרייה':'נמצא בבית'}</span></div>`).join(''):'<div class="empty">📚 עדיין אין השאלות.<br>אפשר להתחיל בכפתור „השאלת ספר”.</div>';el('returns').innerHTML=open.length?open.map(x=>`<div class="item"><strong>📖 ${esc(x.book)}</strong><br>שם הילד/ה: ${esc(x.child)}<br><small>תאריך לקיחה: ${esc(x.date||'—')}</small><button class="action" onclick="finish('${esc(x.id)}')">✅ סימון הספר כהוחזר</button></div>`).join(''):'<div class="empty">🎉 כל הספרים הוחזרו לספרייה!</div>'}
-initAuth();
-</script></body></html>
+<section id="login" class="panel">
+<h2>✉️ כניסה לספרייה</h2>
+<p>הכניסו כתובת מייל ונשלח אליכם קישור מאובטח לכניסה, ללא סיסמה.</p>
+<label for="email">כתובת מייל</label>
+<input id="email" type="email" autocomplete="email" placeholder="name@example.com" required>
+<button class="action" id="loginBtn" onclick="sendMagicLink()">שליחת קישור לכניסה</button>
+<p class="note">לאחר קבלת המייל, פתחו את הקישור באותו דפדפן שבו פתחתם את הספרייה.</p>
+</section>
+<div id="message" role="status" aria-live="polite"></div>
+<div id="authBar" class="hidden">
+<span id="signedInAs"></span>
+<button class="smallbtn" onclick="signOut()">יציאה מהחשבון</button>
+<button class="smallbtn" onclick="refreshAll()">רענון נתונים</button>
+</div>
+<section id="app" class="hidden">
+<section id="home">
+<div class="art">
+<img src="./library-scene.png" alt="הספרייה הקסומה של גן השיטה — ילדים קוראים יחד">
+<div class="welcome">
+<h2>ברוכים הבאים לספרייה שלנו!</h2>
+<p>כל ספר הוא הרפתקה חדשה.<br>פותחים ספר, מגלים עולם וגדלים יחד.</p>
+</div>
+</div>
+<nav>
+<button class="green" onclick="show('add')"><span class="emoji">📚</span>השאלת ספר<small>רישום ספר שיוצא הביתה</small></button>
+<button class="yellow" onclick="show('return')"><span class="emoji">✅</span>החזרת ספר<small>סימון ספר שהוחזר</small></button>
+<button class="pink" onclick="show('report')"><span class="emoji">📊</span>מעקב קריאה<small>נתוני הקריאה בגן</small></button>
+<button class="blue" onclick="show('list')"><span class="emoji">🧒📖</span>רשימת ההשאלות<small>הספרים שנלקחו והוחזרו</small></button>
+</nav>
+<div class="welcome"><div class="decor">🌼 📚 🍃 🦋</div><p><strong>ילדים שקוראים יחד, עולמות שנפתחים בפניהם</strong></p></div>
+</section>
+<section id="add" class="panel hidden">
+<button class="action back" onclick="show('home')">← חזרה לדף הבית</button>
+<h2>📗 רישום השאלת ספר</h2>
+<label for="child">שם הילד או הילדה</label>
+<input id="child" type="text" placeholder="הקלידו את שם הילד/ה" autocomplete="off">
+<label for="book">שם הספר</label>
+<input id="book" type="text" placeholder="הקלידו את שם הספר" autocomplete="off">
+<label for="takeDate">תאריך לקיחת הספר</label>
+<input id="takeDate" type="date">
+<button class="action" onclick="addLoan()">💚 שמירת ההשאלה</button>
+<p class="note">הקלידו את שם הילד ואת שם הספר. השמות יישמרו במאגר המשותף לשימוש בהשאלות הבאות.</p>
+</section>
+<section id="return" class="panel hidden">
+<button class="action back" onclick="show('home')">← חזרה לדף הבית</button>
+<h2>✅ החזרת ספר לספרייה</h2>
+<p>בחרו ספר מהרשימה וסמנו שהוחזר.</p>
+<div id="returns"></div>
+</section>
+<section id="report" class="panel hidden">
+<button class="action back" onclick="show('home')">← חזרה לדף הבית</button>
+<h2>📊 מעקב הקריאה בגן</h2>
+<label for="childCount">מספר הילדים בגן</label>
+<input id="childCount" type="number" min="1" value="34" onchange="render()">
+<div class="stats">
+<div class="stat">📚<div>סה״כ השאלות</div><div class="number" id="total">0</div></div>
+<div class="stat">🏡<div>ספרים בבית</div><div class="number" id="openCount">0</div></div>
+<div class="stat">✅<div>ספרים שהוחזרו</div><div class="number" id="returnedCount">0</div></div>
+<div class="stat">👧🏻<div>ילדים משתתפים</div><div class="number" id="kidCount">0</div></div>
+</div>
+<div class="item"><strong>אחוז השתתפות בפרויקט הקריאה</strong><div class="progress"><div class="bar" id="bar"></div></div><p><strong id="percent">0%</strong> מהילדים לקחו לפחות ספר אחד.</p></div>
+</section>
+<section id="list" class="panel hidden">
+<button class="action back" onclick="show('home')">← חזרה לדף הבית</button>
+<h2>📚 רשימת ההשאלות שלנו</h2>
+<div id="loans"></div>
+</section>
+</section>
+<footer><div class="decor">📚 🌿 📖 🌼</div><strong>גן השיטה</strong><p>סיפור קטן — עולם גדול ❤️</p></footer>
+</main>
